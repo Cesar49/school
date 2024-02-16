@@ -12,10 +12,10 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Listado de Administradores ( Total: {{ $getRecord->total() }} )</h1>
+          <h1>Listado de Clases</h1>
         </div>
         <div class="col-sm-6" style="text-align: right;">
-          <a href="{{ url('admin/admin/add') }}" class="btn btn-primary">Agregar Nuevo Administrador</a>
+          <a href="{{ url('admin/class/add') }}" class="btn btn-primary">Agregar Nueva Clase</a>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -24,7 +24,7 @@
   
   <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Buscar Administrador</h3>
+      <h3 class="card-title">Buscar Clases</h3>
     </div>
     <form action="" method="get">
       <div class="card-body">
@@ -34,18 +34,13 @@
             <input type="text" class="form-control" value="{{ Request::get('name') }}" name="name" placeholder="Ingrese Nombre">
           </div>
           <div class="form-group col-md-3">
-            <label>Email</label>
-            <input type="email" class="form-control" value="{{ Request::get('email') }}" name="email" placeholder="Ingrese email">
-            <div style="color: red;">{{ $errors->first('email') }}</div>
-          </div>
-          <div class="form-group col-md-3">
             <label>Fecha</label>
             <input type="date" class="form-control" value="{{ Request::get('date') }}" name="date" placeholder="Ingrese email">
             <div style="color: red;">{{ $errors->first('email') }}</div>
           </div>
           <div class="form-group col-md-3">
             <button class="btn btn-primary" type="submit" style="margin-top: 30px;"> Buscar</button>
-            <a href="{{ url('admin/admin/list') }}" class="btn btn-success" style="margin-top: 30px;"> Limpiar</a>
+            <a href="{{ url('admin/class/list') }}" class="btn btn-success" style="margin-top: 30px;"> Limpiar</a>
           </div>
         </div>
         
@@ -63,7 +58,7 @@
           @include('_message')
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Listado de Administradores</h3>
+              <h3 class="card-title">Listado de Clases</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body p-0">
@@ -72,7 +67,8 @@
                   <tr>
                     <th>#</th>
                     <th>Nombre</th>
-                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Creado por</th>
                     <th>F.Creacion</th>
                     <th>Accion</th>
                   </tr>
@@ -82,11 +78,18 @@
                   <tr>
                     <td>{{ $value->id}}</td>
                     <td>{{ $value->name}}</td>
-                    <td>{{ $value->email}}</td>
+                    <td>
+                      @if($value->status == 0)
+                        Activa
+                      @else
+                        Inactiva
+                      @endif
+                    </td>
+                    <td>{{ $value->created_by_name}}</td>
                     <td>{{ date('d-m-Y h:i A', strtotime($value->created_at)) }}</td>
                     <td>
-                      <a href="{{ url('admin/admin/edit/'.$value->id)}}" class="btn btn-primary">Editar</a>
-                      <a href="{{ url('admin/admin/delete/'.$value->id)}}" class="btn btn-danger">Borrar</a>
+                      <a href="{{ url('admin/class/edit/'.$value->id)}}" class="btn btn-primary">Editar</a>
+                      <a href="{{ url('admin/class/delete/'.$value->id)}}" class="btn btn-danger">Borrar</a>
                     </td>
                   </tr>
                   @endforeach

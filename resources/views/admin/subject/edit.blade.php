@@ -11,7 +11,7 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-12">
-					<h1>Editar Administrador</h1>
+					<h1>Editar Materia</h1>
 				</div>
 			</div>
 		</div>
@@ -27,17 +27,21 @@
 						<div class="card-body">
 							<div class="form-group">
 								<label>Nombre</label>
-								<input type="text" class="form-control" value="{{ old('name', $getRecord->name) }}" name="name" required placeholder="Ingrese Nombre">
+								<input type="text" class="form-control" value="{{ $getRecord->name }}" name="name" required placeholder="Ingrese Materia">
 							</div>
 							<div class="form-group">
-								<label>Email</label>
-								<input type="email" class="form-control" value="{{ old('email', $getRecord->email) }}" name="email" required placeholder="Ingrese email">
-								<div style="color: red;">{{ $errors->first('email') }}</div>
+								<label>Tipo de Materia</label>
+								<select class="form-control" name="type">
+									<option {{ ($getRecord->status == "Teoria") ? 'selected' : '' }} value="Teoria">Teoria</option>
+									<option {{ ($getRecord->status == "Practica") ? 'selected' : '' }} value="Practica">Practica</option>									
+								</select>
 							</div>
 							<div class="form-group">
-								<label>Password</label>
-								<input type="password" class="form-control" name="password" placeholder="Ingrese Clave">
-								<p>Si desea cambiar la contraseña, agregue una nueva</p>
+								<label>Status</label>
+								<select class="form-control" name="status" required>
+									<option {{ ($getRecord->status == 0) ? 'selected' : '' }} value="0">Activo</option>
+									<option {{ ($getRecord->status == 1) ? 'selected' : '' }} value="1">Inactivo</option>									
+								</select>
 							</div>
 						</div>
 						<!-- /.card-body -->

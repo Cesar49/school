@@ -27,11 +27,11 @@
 						<div class="card-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nombre</label>
-								<input type="text" class="form-control" name="name" required  placeholder="Ingrese Nombre">
+								<input type="text" class="form-control" value="{{ old('name') }}" name="name" required  placeholder="Ingrese Nombre">
 							</div>
 							<div class="form-group">
 								<label>Email</label>
-								<input type="email" class="form-control" name="email" required placeholder="Ingrese email">
+								<input type="email" class="form-control" value="{{ old('email') }}" name="email" required placeholder="Ingrese email">
 								<div style="color: red;">{{ $errors->first('email') }}</div>
 							</div>
 							<div class="form-group">

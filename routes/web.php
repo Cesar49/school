@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\ClassSubjectController;
 
 
 
@@ -53,6 +54,16 @@ Route::group(['middleware' => 'admin'], function () {
    Route::get('admin/subject/edit/{id}', [SubjectController::class, 'edit']);
    Route::post('admin/subject/edit/{id}', [SubjectController::class, 'update']);
    Route::get('admin/subject/delete/{id}', [SubjectController::class, 'delete']);
+
+    //rutas de las asignaciones de materias
+   Route::get('admin/assign_subject/list', [ClassSubjectController::class, 'list']);
+   Route::get('admin/assign_subject/add', [ClassSubjectController::class, 'add']);
+   Route::post('admin/assign_subject/add', [ClassSubjectController::class, 'insert']);
+   Route::get('admin/assign_subject/edit/{id}', [ClassSubjectController::class, 'edit']);
+   Route::post('admin/assign_subject/edit/{id}', [ClassSubjectController::class, 'update']);
+   Route::get('admin/assign_subject/delete/{id}', [ClassSubjectController::class, 'delete']);
+   Route::get('admin/assign_subject/edit_single/{id}', [ClassSubjectController::class, 'edit_single']);
+   Route::post('admin/assign_subject/edit_single/{id}', [ClassSubjectController::class, 'update_single']);
 
    
     

@@ -1,5 +1,5 @@
 //dd($request->all());
 
-* visto el video 17 funcionando y respaldado sin subir a github
+* visto el video 19 funcionando y respaldado sin subir a github
 
 

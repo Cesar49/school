@@ -1,5 +1,8 @@
 //dd($request->all());
 
-* visto el video 19 funcionando y respaldado sin subir a github
+* visto el video 19 funcionando respaldado y subido a github
+
+
+* visto el video 23 crud estudiantes funcionando respaldado y subido a github
 
 

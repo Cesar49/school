@@ -12,10 +12,10 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Listado de Estudiantes ( Total: {{ $getRecord->total() }} )</h1>
+          <h1>Listado de Docentes </h1>
         </div>
         <div class="col-sm-6" style="text-align: right;">
-          <a href="{{ url('admin/student/add') }}" class="btn btn-primary">Agregar Nuevo Administrador</a>
+          <a href="{{ url('admin/teacher/add') }}" class="btn btn-primary">Agregar Nuevo Docente</a>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -31,7 +31,7 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Buscar Estudiante</h3>
+              <h3 class="card-title">Buscar Docente</h3>
             </div>
             <form action="" method="get">
               <div class="card-body">
@@ -52,21 +52,6 @@
                     <div style="color: red;">{{ $errors->first('email') }}</div>
                   </div>
                   <div class="form-group col-md-2">
-                    <label>Nro Admision</label>
-                    <input type="text" class="form-control" value="{{ Request::get('admission_number') }}" name="admission_number" placeholder="Ingrese Nro de admision">
-                    <div style="color: red;">{{ $errors->first('admission_number') }}</div>
-                  </div>
-                  <div class="form-group col-md-2">
-                    <label>Nro Rol</label>
-                    <input type="text" class="form-control" value="{{ Request::get('roll_number') }}" name="roll_number" placeholder="Ingrese Rol">
-                    <div style="color: red;">{{ $errors->first('roll_number') }}</div>
-                  </div>
-                  <div class="form-group col-md-2">
-                    <label>Clase</label>
-                    <input type="text" class="form-control" value="{{ Request::get('class') }}" name="class" placeholder="Ingrese Clase">
-                    <div style="color: red;">{{ $errors->first('class') }}</div>
-                  </div>
-                  <div class="form-group col-md-2">
                     <label>Sexo</label>
                     <select name="gender" class="form-control">
                       <option value="">Seleccione Sexo</option>
@@ -75,24 +60,14 @@
                     </select>
                   </div>
                   <div class="form-group col-md-2">
-                    <label>Caste</label>
-                    <input type="text" class="form-control" value="{{ Request::get('caste') }}" name="caste" placeholder="Ingrese Caste">
-                    <div style="color: red;">{{ $errors->first('caste') }}</div>
-                  </div>
-                  <div class="form-group col-md-2">
-                    <label>Religion</label>
-                    <input type="text" class="form-control" value="{{ Request::get('religion') }}" name="religion" placeholder="Ingrese Religion">
-                    <div style="color: red;">{{ $errors->first('religion') }}</div>
-                  </div>
-                  <div class="form-group col-md-2">
                     <label>Telefono</label>
                     <input type="text" class="form-control" value="{{ Request::get('mobil_number') }}" name="mobil_number" placeholder="Ingrese Telefono">
                     <div style="color: red;">{{ $errors->first('mobil_number') }}</div>
                   </div>
                    <div class="form-group col-md-2">
-                    <label>Sangre</label>
-                    <input type="text" class="form-control" value="{{ Request::get('blood_group') }}" name="blood_group" placeholder="Ingrese Tipo sangre">
-                    <div style="color: red;">{{ $errors->first('blood_group') }}</div>
+                    <label>Direccion</label>
+                    <input type="text" class="form-control" value="{{ Request::get('address') }}" name="address" placeholder="Ingrese direccion">
+                    <div style="color: red;">{{ $errors->first('address') }}</div>
                   </div>
                   <div class="form-group col-md-2">
                     <label>Status</label>
@@ -114,7 +89,7 @@
                   </div>
                   <div class="form-group col-md-2">
                     <button class="btn btn-primary" type="submit" style="margin-top: 30px;"> Buscar</button>
-                    <a href="{{ url('admin/student/list') }}" class="btn btn-success" style="margin-top: 30px;"> Limpiar</a>
+                    <a href="{{ url('admin/teacher/list') }}" class="btn btn-success" style="margin-top: 30px;"> Limpiar</a>
                   </div>
                 </div>
 
@@ -134,21 +109,17 @@
                   <tr>
                     <th>#</th>
                     <th>Imagen</th>
-                    <th>Nombre Estudiante</th>
-                    <th>Nombre Representante</th>
+                    <th>Nombre</th>
                     <th>Email</th>
-                    <th>N.Admision</th>
-                    <th>Rol</th>
-                    <th>Clase</th>
                     <th>Sexo</th>
                     <th>F.Nac</th>
-                    <th>Casta</th>
-                    <th>Religion</th>
-                    <th>Telefono</th>
                     <th>F.Admision</th>
-                    <th>Sangre</th>
-                    <th>Estatura</th>
-                    <th>Peso</th>
+                    <th>Telefono</th>
+                    <th>Edo. Civil</th>
+                    <th>Direccion</th>
+                    <th>Calificacion</th>
+                    <th>Experiencia</th>
+                    <th>Nota</th>
                     <th>Status</th>
                     <th>F.Creacion</th>
                     <th>Accion</th>
@@ -164,40 +135,36 @@
                      @endif
                    </td>
                    <td>{{ $value->name}} {{ $value->last_name}}</td>
-                   <td>{{ $value->parent_name}} {{ $value->parent_last_name}}</td>
                    <td>{{ $value->email}}</td>
-                   <td>{{ $value->admission_number}}</td>
-                   <td>{{ $value->roll_number}}</td>
-                   <td>{{ $value->class_name}}</td>
                    <td>{{ $value->gender}}</td>
                    <td>
                     @if(!empty($value->date_of_birth))
                     {{ date('d-m-Y', strtotime($value->date_of_birth)) }}
                     @endif
                   </td>
-                  <td>{{ $value->caste}}</td>
-                  <td>{{ $value->religion}}</td>
-                  <td>{{ $value->mobil_number}}</td>
                   <td>
                     @if(!empty($value->admission_date))
                     {{ date('d-m-Y', strtotime($value->admission_date)) }}
                     @endif
                   </td>
-                  <td>{{ $value->blood_group}}</td>
-                  <td>{{ $value->height}}</td>
-                  <td>{{ $value->wight}}</td>
+                  <td>{{ $value->mobile_number}}</td>
+                  <td>{{ $value->marital_status}}</td>
+                  <td>{{ $value->address}}</td>
+                  <td>{{ $value->qualification}}</td>
+                  <td>{{ $value->work_experience}}</td>
+                  <td>{{ $value->note}}</td>
                   <td>{{ ($value->status == 0) ? 'Activo' : 'Inactivo'}}</td>
                   <td>{{ date('d-m-Y h:i A', strtotime($value->created_at)) }}</td>
                   <td style="min-width: 150px;">
-                    <a href="{{ url('admin/student/edit/'.$value->id)}}" class="btn btn-primary btn-sm">Editar</a>
-                    <a href="{{ url('admin/student/delete/'.$value->id)}}" class="btn btn-danger btn-sm">Borrar</a>
+                    <a href="{{ url('admin/teacher/edit/'.$value->id)}}" class="btn btn-primary btn-sm">Editar</a>
+                    <a href="{{ url('admin/teacher/delete/'.$value->id)}}" class="btn btn-danger btn-sm">Borrar</a>
                   </td>
                 </tr>
                 @endforeach
               </tbody>
             </table>
             <div style="padding: 10px; float: right;">
-              {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
+              
             </div>
           </div>
           <!-- /.card-body -->

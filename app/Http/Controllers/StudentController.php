@@ -62,7 +62,7 @@ class StudentController extends Controller
        $student->caste = trim($request->caste);
        $student->religion = trim($request->religion);
        $student->mobil_number = trim($request->mobil_number);
-       if (!empty($request->date_of_birth)) {
+       if (!empty($request->admission_date)) {
        $student->admission_date = trim($request->admission_date);       
        }
        $student->blood_group = trim($request->blood_group);

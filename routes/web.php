@@ -9,6 +9,8 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\ClassSubjectController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ParentController;
+use App\Http\Controllers\TeacherController;
 
 
 
@@ -40,6 +42,14 @@ Route::group(['middleware' => 'admin'], function () {
    Route::post('admin/admin/edit/{id}', [AdminController::class, 'update']);
    Route::get('admin/admin/delete/{id}', [AdminController::class, 'delete']);
 
+    //Rutas de docentes
+   Route::get('admin/teacher/list', [TeacherController::class, 'list']);
+   Route::get('admin/teacher/add', [TeacherController::class, 'add']);
+   Route::post('admin/teacher/add', [TeacherController::class, 'insert']);
+   Route::get('admin/teacher/edit/{id}', [TeacherController::class, 'edit']);
+   Route::post('admin/teacher/edit/{id}', [TeacherController::class, 'update']);
+   Route::get('admin/teacher/delete/{id}', [TeacherController::class, 'delete']);
+
    //Rutas de estudiantes
    Route::get('admin/student/list', [StudentController::class, 'list']);
    Route::get('admin/student/add', [StudentController::class, 'add']);
@@ -48,6 +58,17 @@ Route::group(['middleware' => 'admin'], function () {
    Route::post('admin/student/edit/{id}', [StudentController::class, 'update']);
    Route::get('admin/student/delete/{id}', [StudentController::class, 'delete']);
 
+  
+   //Rutas de padres
+   Route::get('admin/parent/list', [ParentController::class, 'list']);
+   Route::get('admin/parent/add', [ParentController::class, 'add']);
+   Route::post('admin/parent/add', [ParentController::class, 'insert']);
+   Route::get('admin/parent/edit/{id}', [ParentController::class, 'edit']);
+   Route::post('admin/parent/edit/{id}', [ParentController::class, 'update']);
+   Route::get('admin/parent/delete/{id}', [ParentController::class, 'delete']);
+   Route::get('admin/parent/my-student/{id}', [ParentController::class, 'myStudent']);
+   Route::get('admin/parent/assign_student_parent/{student_id}/{parent_id}', [ParentController::class, 'AssingStudentParent']);
+   Route::get('admin/parent/assign_student_parent_delete/{student_id}', [ParentController::class, 'AssingStudentParentDelete']);
 
    //rutas de las clases
    Route::get('admin/class/list', [ClassController::class, 'list']);

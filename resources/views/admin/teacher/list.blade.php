@@ -39,17 +39,14 @@
                   <div class="form-group col-md-2">
                     <label>Nombre</label>
                     <input type="text" class="form-control" value="{{ Request::get('name') }}" name="name" placeholder="Ingrese Nombre">
-                    <div style="color: red;">{{ $errors->first('name') }}</div>
                   </div>
                   <div class="form-group col-md-2">
                     <label>Apellido</label>
                     <input type="text" class="form-control" value="{{ Request::get('last_name') }}" name="last_name" placeholder="Ingrese Apellido">
-                    <div style="color: red;">{{ $errors->first('last_name') }}</div>
                   </div>
                   <div class="form-group col-md-2">
                     <label>Email</label>
                     <input type="email" class="form-control" value="{{ Request::get('email') }}" name="email" placeholder="Ingrese email">
-                    <div style="color: red;">{{ $errors->first('email') }}</div>
                   </div>
                   <div class="form-group col-md-2">
                     <label>Sexo</label>
@@ -62,12 +59,14 @@
                   <div class="form-group col-md-2">
                     <label>Telefono</label>
                     <input type="text" class="form-control" value="{{ Request::get('mobil_number') }}" name="mobil_number" placeholder="Ingrese Telefono">
-                    <div style="color: red;">{{ $errors->first('mobil_number') }}</div>
                   </div>
-                   <div class="form-group col-md-2">
-                    <label>Direccion</label>
-                    <input type="text" class="form-control" value="{{ Request::get('address') }}" name="address" placeholder="Ingrese direccion">
-                    <div style="color: red;">{{ $errors->first('address') }}</div>
+                  <div class="form-group col-md-2">
+                    <label>Estado Civil</label>
+                    <input type="text" class="form-control" value="{{ Request::get('marital_status') }}" name="marital_status" placeholder="Ingrese Estado Civil">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label>Direccion actual</label>
+                    <input type="text" class="form-control" value="{{ Request::get('current_address') }}" name="current_address" placeholder="Ingrese direccion actual">
                   </div>
                   <div class="form-group col-md-2">
                     <label>Status</label>

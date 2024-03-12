@@ -144,7 +144,7 @@ class ParentController extends Controller
        $data['getSearchStudent'] = User::getSearchStudent();
        $data['getRecord'] = User::getMyStudent($id);
        $data['header_title'] = 'Lista de Estudiante Representado';
-       return view('admin.parent.my-student', $data);
+       return view('admin.parent.my_student', $data);
    }
 
 
@@ -172,6 +172,17 @@ class ParentController extends Controller
        } 
 
     
+   }
+
+   //parent side
+
+   public function myStudentParent()
+   {
+       $id = Auth::user()->id;
+      
+       $data['getRecord'] = User::getMyStudent($id);
+       $data['header_title'] = 'Mi Estudiante';
+       return view('parent.my_student', $data);
    }
 
 

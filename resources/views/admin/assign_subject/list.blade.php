@@ -19,39 +19,8 @@
         </div>
       </div>
     </div><!-- /.container-fluid -->
-  </section>
-
+  </section> 
   
-  <div class="card">
-    <div class="card-header">
-      <h3 class="card-title">Buscar Materia</h3>
-    </div>
-    <form action="" method="get">
-      <div class="card-body">
-        <div class="row">
-          <div class="form-group col-md-3">
-            <label>Nombre de clase</label>
-            <input type="text" class="form-control" value="{{ Request::get('class_name') }}" name="class_name" placeholder="Ingrese Nombre de Clase">
-          </div>
-          <div class="form-group col-md-3">
-            <label>Nombre de Materia</label>
-            <input type="text" class="form-control" value="{{ Request::get('subject_name') }}" name="subject_name" placeholder="Ingrese Nombre de Materia">
-          </div>
-          <div class="form-group col-md-3">
-            <label>Fecha</label>
-            <input type="date" class="form-control" value="{{ Request::get('date') }}" name="date" placeholder="Ingrese email">
-            <div style="color: red;">{{ $errors->first('email') }}</div>
-          </div>
-          <div class="form-group col-md-3">
-            <button class="btn btn-primary" type="submit" style="margin-top: 30px;"> Buscar</button>
-            <a href="{{ url('admin/assign_subject/list') }}" class="btn btn-success" style="margin-top: 30px;"> Limpiar</a>
-          </div>
-        </div>
-        
-      </div>
-      <!-- /.card-body -->
-    </form>
-  </div>
 
 
   <!-- Main content -->
@@ -59,6 +28,37 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Buscar Materia</h3>
+            </div>
+            <form action="" method="get">
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-md-3">
+                    <label>Nombre de clase</label>
+                    <input type="text" class="form-control" value="{{ Request::get('class_name') }}" name="class_name" placeholder="Ingrese Nombre de Clase">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Nombre de Materia</label>
+                    <input type="text" class="form-control" value="{{ Request::get('subject_name') }}" name="subject_name" placeholder="Ingrese Nombre de Materia">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Fecha</label>
+                    <input type="date" class="form-control" value="{{ Request::get('date') }}" name="date" placeholder="Ingrese email">
+                    <div style="color: red;">{{ $errors->first('email') }}</div>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <button class="btn btn-primary" type="submit" style="margin-top: 30px;"> Buscar</button>
+                    <a href="{{ url('admin/assign_subject/list') }}" class="btn btn-success" style="margin-top: 30px;"> Limpiar</a>
+                  </div>
+                </div>
+                
+              </div>
+              <!-- /.card-body -->
+            </form>
+          </div>
           @include('_message')
           <div class="card">
             <div class="card-header">
@@ -79,44 +79,44 @@
                   </tr>
                 </thead>
                 <tbody>
-                   @foreach($getRecord as $value)
-                  <tr>
-                    <td>{{ $value->id}}</td>
-                    <td>{{ $value->class_name}}</td>
-                    <td>{{ $value->subject_name}}</td>
-                    <td>
-                      @if($value->status == 0)
-                      Activa
-                      @else
-                      Inactiva
-                      @endif
-                    </td>
-                    <td>{{ $value->created_by_name}}</td>
-                    <td>{{ date('d-m-Y h:i A', strtotime($value->created_at)) }}</td>
-                    <td>
-                      <a href="{{ url('admin/assign_subject/edit/'.$value->id)}}" class="btn btn-primary">Editar</a>
-                      <a href="{{ url('admin/assign_subject/edit_single/'.$value->id)}}" class="btn btn-primary">Editar Materia</a>
-                      <a href="{{ url('admin/assign_subject/delete/'.$value->id)}}" class="btn btn-danger">Borrar</a>
-                    </td>
-                  </tr>
-                  @endforeach
-                </tbody>
-              </table>
-              <div style="padding: 10px; float: right;">
-                {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
-              </div>
+                 @foreach($getRecord as $value)
+                 <tr>
+                  <td>{{ $value->id}}</td>
+                  <td>{{ $value->class_name}}</td>
+                  <td>{{ $value->subject_name}}</td>
+                  <td>
+                    @if($value->status == 0)
+                    Activa
+                    @else
+                    Inactiva
+                    @endif
+                  </td>
+                  <td>{{ $value->created_by_name}}</td>
+                  <td>{{ date('d-m-Y h:i A', strtotime($value->created_at)) }}</td>
+                  <td>
+                    <a href="{{ url('admin/assign_subject/edit/'.$value->id)}}" class="btn btn-primary">Editar</a>
+                    <a href="{{ url('admin/assign_subject/edit_single/'.$value->id)}}" class="btn btn-primary">Editar Materia</a>
+                    <a href="{{ url('admin/assign_subject/delete/'.$value->id)}}" class="btn btn-danger">Borrar</a>
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+            <div style="padding: 10px; float: right;">
+              {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
             </div>
-            <!-- /.card-body -->
           </div>
-          <!-- /.card -->
+          <!-- /.card-body -->
         </div>
-        <!-- /.col -->
+        <!-- /.card -->
       </div>
-      <!-- /.row -->
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
 
-    </div><!-- /.container-fluid -->
-  </section>
-  <!-- /.content -->
+  </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
 @endsection

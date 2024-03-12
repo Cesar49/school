@@ -19,14 +19,14 @@ class ClassSubjectController extends Controller
  }
 
 
- public function add()
+ 
+public function add()
  {       
   $data['getClass'] = ClassModel::getClass();
   $data['getSubject'] = SubjectModel::getSubject();
   $data['header_title'] = 'Agregar Asignacion de Materia';
   return view('admin.assign_subject.add', $data);
-}
-
+ }
 
   public function insert(Request $request)
   {

@@ -15,7 +15,7 @@
           <h1>Listado de Estudiantes ( Total: {{ $getRecord->total() }} )</h1>
         </div>
         <div class="col-sm-6" style="text-align: right;">
-          <a href="{{ url('admin/student/add') }}" class="btn btn-primary">Agregar Nuevo Administrador</a>
+          <a href="{{ url('admin/student/add') }}" class="btn btn-primary">Agregar Nuevo Estudiante</a>
         </div>
       </div>
     </div><!-- /.container-fluid -->

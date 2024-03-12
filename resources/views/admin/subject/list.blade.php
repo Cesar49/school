@@ -22,40 +22,7 @@
   </section>
 
   
-  <div class="card">
-    <div class="card-header">
-      <h3 class="card-title">Buscar Materia</h3>
-    </div>
-    <form action="" method="get">
-      <div class="card-body">
-        <div class="row">
-          <div class="form-group col-md-3">
-            <label>Nombre</label>
-            <input type="text" class="form-control" value="{{ Request::get('name') }}" name="name" placeholder="Ingrese Nombre">
-          </div>
-          <div class="form-group col-md-3">
-            <label>Tipo de Materia</label>
-            <select name="type" class="form-control">
-              <option value="">Seleccione</option>
-              <option {{ (Request::get("type")  == "Teoria") ? 'selected' : '' }} value="Teoria">Teoria</option>
-              <option {{ (Request::get("type") == "Practica") ? 'selected' : '' }} value="Practica">Practica</option>
-            </select>
-          </div>
-          <div class="form-group col-md-3">
-            <label>Fecha</label>
-            <input type="date" class="form-control" value="{{ Request::get('date') }}" name="date" placeholder="Ingrese email">
-            <div style="color: red;">{{ $errors->first('email') }}</div>
-          </div>
-          <div class="form-group col-md-3">
-            <button class="btn btn-primary" type="submit" style="margin-top: 30px;"> Buscar</button>
-            <a href="{{ url('admin/subject/list') }}" class="btn btn-success" style="margin-top: 30px;"> Limpiar</a>
-          </div>
-        </div>
-        
-      </div>
-      <!-- /.card-body -->
-    </form>
-  </div>
+  
 
 
   <!-- Main content -->
@@ -63,6 +30,40 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Buscar Materia</h3>
+            </div>
+            <form action="" method="get">
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-md-3">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" value="{{ Request::get('name') }}" name="name" placeholder="Ingrese Nombre">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Tipo de Materia</label>
+                    <select name="type" class="form-control">
+                      <option value="">Seleccione</option>
+                      <option {{ (Request::get("type")  == "Teoria") ? 'selected' : '' }} value="Teoria">Teoria</option>
+                      <option {{ (Request::get("type") == "Practica") ? 'selected' : '' }} value="Practica">Practica</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Fecha</label>
+                    <input type="date" class="form-control" value="{{ Request::get('date') }}" name="date" placeholder="Ingrese email">
+                    <div style="color: red;">{{ $errors->first('email') }}</div>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <button class="btn btn-primary" type="submit" style="margin-top: 30px;"> Buscar</button>
+                    <a href="{{ url('admin/subject/list') }}" class="btn btn-success" style="margin-top: 30px;"> Limpiar</a>
+                  </div>
+                </div>
+                
+              </div>
+              <!-- /.card-body -->
+            </form>
+          </div>
           @include('_message')
           <div class="card">
             <div class="card-header">

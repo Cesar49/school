@@ -191,6 +191,14 @@
               </p>
             </a>
           </li>
+           <li class="nav-item">
+            <a href="{{ url('admin/assign_class_teacher/list') }}" class="nav-link @if(Request::segment(2) == 'assign_class_teacher') active  @endif">
+              <i class="nav-icon far fa-user"></i>
+              <p>
+                Asignacion de Clases
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="{{ url('admin/account') }}" class="nav-link @if(Request::segment(2) == 'account') active  @endif">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -245,6 +253,14 @@
             </a>
           </li>
            <li class="nav-item">
+            <a href="{{ url('student/my_subject') }}" class="nav-link @if(Request::segment(2) == 'my_subject') active  @endif">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Mis Materias
+              </p>
+            </a>
+          </li>
+           <li class="nav-item">
             <a href="{{ url('student/account') }}" class="nav-link @if(Request::segment(2) == 'account') active  @endif">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -267,6 +283,14 @@
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
+              </p>
+            </a>
+          </li>
+           <li class="nav-item">
+            <a href="{{ url('parent/my_student') }}" class="nav-link @if(Request::segment(2) == 'my_student') active  @endif">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Mi Estudiante
               </p>
             </a>
           </li>

@@ -8,3 +8,9 @@
 #visto los videos 33 y 34 funcionando respaldado sin subir a github
 #visto el video 35 funcionando respaldado sin subir a github
 #visto el video 36 funcionando respaldado subido a github
+#visto el video 37 funcionando respaldado sin subir a github
+#visto el video 38 y 39 funcionando y respaldado sin subir a github (se modifico un strict en el archivo config de true a false en el video 39)
+#visto el video 40 funcionando y respaldado sin subir a github
+#visto el video 41 funcionando y respaldado sin subir a github
+#visto el video 42 funcionando y respaldado sin subir a github
+#visto el video 43 funcionando y respaldado subido a github

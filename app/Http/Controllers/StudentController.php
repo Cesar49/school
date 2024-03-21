@@ -150,20 +150,25 @@ class StudentController extends Controller
    }
 
 
-   public function delete($id)
-   {
-      
-       $getRecord = User::getSingle($id);
-       if (!empty($getRecord)) {
-           $getRecord->is_delete = 1;
-           $getRecord->save();
+  public function delete($id)
+  {      
+    $getRecord = User::getSingle($id);
+     if (!empty($getRecord)) {
+         $getRecord->is_delete = 1;
+         $getRecord->save();
 
-           return redirect()->back()->with('success', 'Estudiante eliminado satisfactoriamente.');
-       } else {
-           abort(404);
-       } 
+         return redirect()->back()->with('success', 'Estudiante eliminado satisfactoriamente.');
+     } else {
+         abort(404);
+     }     
+  }
 
-    
-   }
+
+  public function MyStudent()
+  {
+     $data['getRecord'] = User::getTeacherStudent(Auth::user()->id);
+     $data['header_title'] = 'Lista de Mis Estudiantes';
+     return view('teacher.my_student', $data);
+  }
 
 }

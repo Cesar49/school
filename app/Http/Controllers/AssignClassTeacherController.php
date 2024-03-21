@@ -149,4 +149,13 @@ class AssignClassTeacherController extends Controller
     return redirect()->back()->with('success', 'Asignacion de clase eliminada satisfactoriamente.');
   }
 
+  // teacher side work
+
+  public function MyClassSubject()
+  {
+    $data['getRecord'] = AssignClassTeacherModel::getMyClassSubject(Auth::user()->id);
+    $data['header_title'] = 'Mi Clase & Materia';
+    return view('teacher.my_class_subject', $data);
+  }
+
 }
